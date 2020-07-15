@@ -20,8 +20,4 @@ npm run serve
 
 ## VIEW IN BROWSER
 
-In browser visit
-
-```
-http://localhost:8080/
-```
+In browser visit - http://localhost:8080/
