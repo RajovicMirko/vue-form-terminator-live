@@ -1,6 +1,6 @@
 # vue-form-terminator-live
 
-## CLONE lone
+## CLONE
 
 ```
 git clone https://github.com/RajovicMirko/vue-form-terminator-live.git
