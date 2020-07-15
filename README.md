@@ -1,29 +1,27 @@
 # vue-form-terminator-live
 
-## Project setup
+## CLONE lone
+
+```
+git clone https://github.com/RajovicMirko/vue-form-terminator-live.git
+```
+
+## INSTALL
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## START PROJECT
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## VIEW IN BROWSER
 
-### Run your unit tests
-```
-npm run test:unit
-```
+In browser visit
 
-### Lints and fixes files
 ```
-npm run lint
+http://localhost:8080/
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

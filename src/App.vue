@@ -37,10 +37,23 @@ export default {
 </script>
 
 <style lang="scss">
+$primary: #2185d0;
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -59,7 +72,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0.5rem;
-    background-color: rgb(86, 18, 245);
+    background-color: $primary;
     color: white !important;
 
     & .banner {
@@ -79,7 +92,10 @@ body {
   }
 
   .page {
-    color: rgb(86, 18, 245);
+    color: $primary;
+
+    & .git-link {
+    }
   }
 }
 

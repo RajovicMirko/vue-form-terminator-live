@@ -1,17 +1,18 @@
 <template>
   <div id="home">
-    <div>
-      <h1>WELCOME</h1>
-      <h1>TO</h1>
-      <h1>vue-form-terminator</h1>
-      <h1>SAMPLE</h1>
+    <div class="welcome">
+      <h1 class="spacing">WELCOME</h1>
+      <h1 class="spacing">TO</h1>
+      <h1 class="bolder">NPM PACKAGE</h1>
+      <h1 class="bolder">vue-form-terminator</h1>
+      <h1 class="spacing">SAMPLE</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home"
+  name: "Home",
 };
 </script>
 
@@ -20,5 +21,14 @@ export default {
   display: grid;
   place-items: center;
   text-align: center;
+
+  & .bolder {
+    font-weight: bolder;
+    font-size: 4rem;
+  }
+
+  & .spacing {
+    letter-spacing: 5px;
+  }
 }
 </style>

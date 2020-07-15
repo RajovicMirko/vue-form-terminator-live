@@ -1,5 +1,11 @@
 <template>
   <div id="bootstrap">
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
+      >Git page code sample</a
+    >
     <vue-form-terminator
       v-bind="formSetup"
       @submited="handleSubmit"
@@ -125,6 +131,7 @@ export default {
 
 #bootstrap {
   display: grid;
+  grid-template-rows: auto 1fr;
   place-items: center;
   min-width: 350px;
 
@@ -140,6 +147,12 @@ export default {
 
     & .inputnator {
       margin-bottom: 0.5rem;
+
+      & .errornator {
+        & small {
+          font-size: 0.9rem;
+        }
+      }
     }
 
     & .buttonator {

@@ -1,5 +1,11 @@
 <template>
   <div id="semanticui">
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/SemanticUI.vue"
+      >Git page code sample</a
+    >
     <vue-form-terminator
       v-bind="formSetup"
       @submited="handleSubmit"
@@ -15,7 +21,7 @@ export default {
     return {
       formSetup: {
         title: "SemanticUI sample",
-        errorMessagePosition: "bottom",
+        errorMessagePosition: "top",
         body: [
           {
             id: "username",
@@ -126,6 +132,7 @@ export default {
 <style lang="scss">
 #semanticui {
   display: grid;
+  grid-template-rows: auto 1fr;
   place-items: center;
   min-width: 350px;
 
@@ -134,13 +141,21 @@ export default {
     min-width: 300px;
 
     & .titlenator {
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
       font-weight: bold;
       color: #007bff;
     }
 
     & .inputnator {
       margin-bottom: 0.5rem;
+
+      & .errornator {
+        justify-content: flex-end;
+
+        & small {
+          font-size: 0.9rem;
+        }
+      }
     }
 
     & .buttonator {
