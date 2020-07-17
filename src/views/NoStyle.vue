@@ -6,7 +6,7 @@
       <a
         class="git-link"
         target="_blank"
-        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
+        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/NoStyle.vue"
         >Git page code sample</a
       >
 
