@@ -1,8 +1,11 @@
 import Vue from "vue";
-import App from "./App.vue";
-import router from "./router/index.js";
+import App from "@/App.vue";
+import router from "@r/index.js";
 
 Vue.config.productionTip = false;
+
+import { Plugin } from "vue-fragment";
+Vue.use(Plugin);
 
 import VueFormTerminator from "vue-form-terminator";
 import "vue-form-terminator/dist/vue-form-terminator.common";

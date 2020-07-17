@@ -41,13 +41,11 @@ $primary: #2185d0;
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   border: none;
   outline: none;
   background: none;
+  text-decoration: none;
+  list-style: none;
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
@@ -57,7 +55,7 @@ $primary: #2185d0;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #app {
@@ -93,9 +91,6 @@ body {
 
   .page {
     color: $primary;
-
-    & .git-link {
-    }
   }
 }
 

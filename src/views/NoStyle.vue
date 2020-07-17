@@ -1,12 +1,12 @@
 <template>
-  <div id="semanticui">
+  <div id="nostyle">
     <div
       style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;"
     >
       <a
         class="git-link"
         target="_blank"
-        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/SemanticUI.vue"
+        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
         >Git page code sample</a
       >
 
@@ -35,12 +35,12 @@
 
 <script>
 export default {
-  name: "SemanticUI",
+  name: "NoStyle",
 
   data() {
     return {
       formSetup: {
-        title: "SemanticUI sample",
+        title: "NoStyle sample",
         errorMessagePosition: "top",
         body: [
           [
@@ -59,7 +59,7 @@ export default {
                   message: "First name must have less then 20 characters",
                 },
               },
-              otherClasses: "ui input",
+              customClasses: "first-name",
             },
             {
               id: "lastName",
@@ -76,7 +76,7 @@ export default {
                   message: "Last name must have less then 20 characters",
                 },
               },
-              otherClasses: "ui input",
+              customClasses: "last-name",
             },
           ],
           {
@@ -93,8 +93,11 @@ export default {
                 value: 20,
                 message: "Username must have less then 20 characters",
               },
+              noWhiteSpace: {
+                message: "No space character allowed",
+              },
             },
-            otherClasses: "ui input",
+            otherClasses: "",
           },
           {
             id: "email",
@@ -110,7 +113,7 @@ export default {
                 message: "Email must be a valid email",
               },
             },
-            otherClasses: "ui input",
+            otherClasses: "",
           },
           {
             id: "password",
@@ -131,7 +134,7 @@ export default {
                 message: "Pasword must have less then 20 characters",
               },
             },
-            otherClasses: "ui input",
+            otherClasses: "",
           },
           {
             id: "repeatPassword",
@@ -156,7 +159,7 @@ export default {
                 message: "Repeat Password must be equal as password",
               },
             },
-            otherClasses: "ui input custom-input-semanticui",
+            otherClasses: "custom-input-nostyle",
           },
         ],
         actions: [
@@ -164,21 +167,20 @@ export default {
             id: "submit",
             name: "Submit",
             type: "submit",
-            icon: "fas fa-check-circle",
-            otherClasses: "ui primary button custom-button",
+            icon: "fas fa-plus",
+            otherClasses: "",
           },
           {
             id: "reset",
             name: "Reset",
-            type: "Reset",
-            icon: "fas fa-times-circle",
-            otherClasses: "ui yellow basic button custom-button",
+            type: "reset",
+            icon: "fas fa-trash",
+            otherClasses: "",
           },
         ],
       },
     };
   },
-
   methods: {
     handleSubmit(data) {
       console.log(data);
@@ -186,9 +188,8 @@ export default {
   },
 };
 </script>
-
 <style lang="scss">
-#semanticui {
+#nostyle {
   display: grid;
   grid-template-rows: auto 1fr;
   place-items: center;
@@ -200,20 +201,19 @@ export default {
   }
 }
 
-.custom-input-semanticui {
-  & input {
-    border-radius: 2rem !important;
-    text-align: center !important;
+.custom-input-nostyle {
+  border: 1px solid gray;
+  border-radius: 2rem;
+  text-align: center;
 
-    &:hover {
-      border-color: transparent;
-      box-shadow: 0 0 2px 0.5px #2185d0;
-    }
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 0 2px 0.5px #2185d0;
+  }
 
-    &:focus {
-      border-color: transparent !important;
-      box-shadow: 0 0 0 1.5px #2185d0 !important;
-    }
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 1.5px #2185d0;
   }
 }
 </style>
