@@ -41,13 +41,13 @@ export default {
   data() {
     return {
       model: {
-        firstName: "Mirko",
-        lastName: "Rajovic",
-        username: "Mirkasin",
-        email: "mirko@gmail.com",
+        firstName: "John",
+        lastName: "Doe",
+        username: "JohnDoe",
+        email: "john.doe@gmail.com",
         password: "12345",
         repeatPassword: "12345",
-        address: "Pastirska",
+        address: "Some test street",
         addressNumber: "123",
       },
       formSetup: {
@@ -239,10 +239,17 @@ export default {
 
   & .inputnator {
     margin-bottom: 0.6rem;
+
+    & input {
+      margin: 0.2rem 0;
+    }
   }
 
   & .errornator {
     justify-content: flex-start;
+    & small.invalid {
+      font-size: 1rem;
+    }
   }
 
   & .vue-form-terminator {
@@ -299,6 +306,8 @@ export default {
 
 .custom-input-bootstrap {
   border-radius: 2rem;
+  height: 2.5rem !important;
+  font-size: 1.3rem;
 
   &:hover {
     border-color: transparent;
