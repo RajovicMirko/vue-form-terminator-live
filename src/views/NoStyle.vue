@@ -151,7 +151,7 @@ export default {
                 message: "Repeat Password must be equal as password"
               }
             },
-            otherClasses: "custom-input-nostyle"
+            otherClasses: ""
           }
         ],
         actions: [
@@ -190,22 +190,6 @@ export default {
   & .vue-form-terminator {
     width: 40%;
     min-width: 300px;
-  }
-}
-
-.custom-input-nostyle {
-  border: 1px solid gray;
-  border-radius: 2rem;
-  text-align: center;
-
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 0 2px 0.5px #2185d0;
-  }
-
-  &:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 1.5px #2185d0;
   }
 }
 </style>
