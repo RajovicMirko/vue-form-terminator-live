@@ -41,9 +41,6 @@ $primary: #2185d0;
 * {
   margin: 0;
   padding: 0;
-  border: none;
-  outline: none;
-  background: none;
   text-decoration: none;
   list-style: none;
   font-style: normal;
@@ -61,8 +58,6 @@ body {
 #app {
   display: grid;
   grid-template-rows: auto 1fr;
-  width: 100vw;
-  height: 100vh;
 
   & .nav {
     position: relative;
@@ -90,6 +85,10 @@ body {
   }
 
   .page {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    place-items: center;
+    min-width: 350px;
     color: $primary;
   }
 }

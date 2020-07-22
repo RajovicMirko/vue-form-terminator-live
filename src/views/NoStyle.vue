@@ -1,27 +1,12 @@
 <template>
   <div id="nostyle">
-    <div style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-      <a
-        class="git-link"
-        target="_blank"
-        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/NoStyle.vue"
-      >Git page code sample</a>
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/NoStyle.vue"
+    >Git page code sample</a>
 
-      <div>
-        <label for="errorMessagePosition" style="margin-right: 0.5rem">Error message position</label>
-        <select
-          name="errorMessagePosition"
-          id="errorMessagePosition"
-          v-model="formSetup.errorMessagePosition"
-          style="border: none; color: inherit;"
-        >
-          <option value="top" selected>Top</option>
-          <option value="bottom">Bottom</option>
-        </select>
-      </div>
-    </div>
-
-    <vue-form-terminator v-bind="formSetup" @submited="handleSubmit"></vue-form-terminator>
+    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
   </div>
 </template>
 
@@ -31,46 +16,104 @@ export default {
 
   data() {
     return {
+      model: {
+        firstName: "John",
+        lastName: "Doe",
+        address: "Test street address",
+        addressNumber: "123",
+        username: "JohnDoe",
+        email: "john.doe@gmail.com",
+        password: "12345",
+        repeatPassword: "12345"
+      },
       formSetup: {
+        positioning: {
+          title: "",
+          input: {
+            label: "",
+            text: "",
+            errorMessage: ""
+          }
+        },
         title: "NoStyle sample",
-        errorMessagePosition: "top",
         body: [
-          [
-            {
-              id: "firstName",
-              name: "FirstName",
-              type: "text",
-              label: "",
-              placeholder: "First name",
-              validations: {
-                required: {
-                  message: "First name is required"
+          {
+            isGroup: true,
+            title: "Test group title",
+            otherClasses: "",
+            elements: [
+              {
+                id: "firstName",
+                name: "FirstName",
+                type: "text",
+                label: "",
+                placeholder: "First name",
+                validations: {
+                  required: {
+                    message: "First name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "First name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "First name must have less then 20 characters"
-                }
+                customClasses: "first-name"
               },
-              customClasses: "first-name"
-            },
-            {
-              id: "lastName",
-              name: "LastName",
-              type: "text",
-              label: "",
-              placeholder: "Last name",
-              validations: {
-                required: {
-                  message: "Last name is required"
+              {
+                id: "lastName",
+                name: "LastName",
+                type: "text",
+                label: "",
+                placeholder: "Last name",
+                validations: {
+                  required: {
+                    message: "Last name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "Last name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "Last name must have less then 20 characters"
-                }
+                customClasses: "last-name"
+              }
+            ]
+          },
+          {
+            isGroup: true,
+            title: "",
+            otherClasses: "",
+            elements: [
+              {
+                id: "address",
+                name: "Address",
+                type: "text",
+                label: "",
+                placeholder: "Address",
+                validations: {
+                  required: {
+                    message: "Address is required"
+                  }
+                },
+                otherClasses: ""
               },
-              customClasses: "last-name"
-            }
-          ],
+              {
+                id: "addressNumber",
+                name: "HouseNumber",
+                type: "number",
+                label: "",
+                placeholder: "No.",
+                validations: {
+                  required: {
+                    message: "No. is required"
+                  },
+                  numberOnly: {
+                    message: "Only numbers allowed"
+                  }
+                },
+                otherClasses: ""
+              }
+            ]
+          },
           {
             id: "username",
             name: "Username",
@@ -182,14 +225,6 @@ export default {
 </script>
 <style lang="scss">
 #nostyle {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  place-items: center;
-  min-width: 350px;
-
-  & .vue-form-terminator {
-    width: 40%;
-    min-width: 300px;
-  }
+  padding: 0 2rem;
 }
 </style>

@@ -1,30 +1,12 @@
 <template>
   <div id="semanticui">
-    <div style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-      <a
-        class="git-link"
-        target="_blank"
-        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/SemanticUI.vue"
-      >Git page code sample</a>
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/SemanticUI.vue"
+    >Git page code sample</a>
 
-      <div>
-        <label for="errorMessagePosition" style="margin-right: 0.5rem">Error message position</label>
-        <select
-          name="errorMessagePosition"
-          id="errorMessagePosition"
-          v-model="formSetup.errorMessagePosition"
-          style="border: none; color: inherit;"
-        >
-          <option value="top" selected>Top</option>
-          <option value="bottom">Bottom</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="forms">
-      <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
-      <vue-form-terminator v-bind="formSetup2" :model="model2" @submited="handleSubmit"></vue-form-terminator>
-    </div>
+    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
   </div>
 </template>
 
@@ -35,60 +17,111 @@ export default {
   data() {
     return {
       model: {
-        firstName: "Mirko",
-        lastName: "Rajovic",
-        username: "Mirkasin",
-        email: "mirko@gmail.com",
+        firstName: "John",
+        lastName: "Doe",
+        address: "Test street address",
+        addressNumber: "123",
+        username: "JohnDoe",
+        email: "john.doe@gmail.com",
         password: "12345",
         repeatPassword: "12345"
       },
 
       formSetup: {
+        positioning: {
+          title: "left",
+          input: {
+            label: "top center",
+            text: "center",
+            errorMessage: "bottom center"
+          }
+        },
         title: "SemanticUI sample",
         errorMessagePosition: "top",
         body: [
-          [
-            {
-              id: "firstName",
-              name: "FirstName",
-              type: "text",
-              label: "",
-              placeholder: "First name",
-              validations: {
-                required: {
-                  message: "First name is required"
+          {
+            isGroup: true,
+            title: "Personal data",
+            otherClasses: "group-1",
+            elements: [
+              {
+                id: "firstName",
+                name: "FirstName",
+                type: "text",
+                label: "First name",
+                placeholder: "",
+                validations: {
+                  required: {
+                    message: "First name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "First name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "First name must have less then 20 characters"
-                }
+                otherClasses: "ui input custom-input-semanticui"
               },
-              otherClasses: "ui input custom-input-semanticui"
-            },
-            {
-              id: "lastName",
-              name: "LastName",
-              type: "text",
-              label: "",
-              placeholder: "Last name",
-              validations: {
-                required: {
-                  message: "Last name is required"
+              {
+                id: "lastName",
+                name: "LastName",
+                type: "text",
+                label: "Last name",
+                placeholder: "",
+                validations: {
+                  required: {
+                    message: "Last name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "Last name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "Last name must have less then 20 characters"
-                }
+                otherClasses: "ui input custom-input-semanticui"
+              }
+            ]
+          },
+          {
+            isGroup: true,
+            title: "",
+            otherClasses: "group-2",
+            elements: [
+              {
+                id: "address",
+                name: "Address",
+                type: "text",
+                label: "Address",
+                placeholder: "",
+                validations: {
+                  required: {
+                    message: "Address is required"
+                  }
+                },
+                otherClasses: "form-control"
               },
-              otherClasses: "ui input custom-input-semanticui"
-            }
-          ],
+              {
+                id: "addressNumber",
+                name: "HouseNumber",
+                type: "number",
+                label: "No.",
+                placeholder: "",
+                validations: {
+                  required: {
+                    message: "No. is required"
+                  },
+                  numberOnly: {
+                    message: "Only numbers allowed"
+                  }
+                },
+                otherClasses: "form-control"
+              }
+            ]
+          },
           {
             id: "username",
             name: "Username",
             type: "text",
             label: "Username",
-            placeholder: "Username",
+            placeholder: "",
             validations: {
               required: {
                 message: "Username is required"
@@ -105,7 +138,7 @@ export default {
             name: "Email",
             type: "text",
             label: "Email",
-            placeholder: "Email",
+            placeholder: "",
             validations: {
               required: {
                 message: "Email is required"
@@ -120,8 +153,8 @@ export default {
             id: "password",
             name: "Password",
             type: "password",
-            label: "",
-            placeholder: "Password",
+            label: "Password",
+            placeholder: "",
             validations: {
               required: {
                 message: "Password is required"
@@ -141,8 +174,8 @@ export default {
             id: "repeatPassword",
             name: "RepeatPassword",
             type: "password",
-            label: "",
-            placeholder: "Repeat Password",
+            label: "Repeat Password",
+            placeholder: "",
             validations: {
               required: {
                 message: "Repeat Pasword is required"
@@ -179,45 +212,6 @@ export default {
             otherClasses: "ui yellow basic button custom-button"
           }
         ]
-      },
-
-      model2: {
-        test: "Some test input"
-      },
-
-      formSetup2: {
-        title: "Test form",
-        errorMessagePosition: "top",
-        body: [
-          {
-            id: "test",
-            type: "text",
-            name: "Test",
-            placeholder: "test",
-            validations: {
-              required: {
-                message: "Test is required"
-              }
-            },
-            otherClasses: "ui input custom-input-semanticui"
-          }
-        ],
-        actions: [
-          {
-            id: "submit2",
-            name: "Submit",
-            type: "submit",
-            icon: "fas fa-check-circle",
-            otherClasses: "ui primary button custom-button"
-          },
-          {
-            id: "reset2",
-            name: "Reset",
-            type: "reset",
-            icon: "fas fa-times-circle",
-            otherClasses: "ui yellow basic button custom-button"
-          }
-        ]
       }
     };
   },
@@ -232,58 +226,44 @@ export default {
 
 <style lang="scss">
 #semanticui {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  place-items: center;
-  min-width: 350px;
-
   & .vue-form-terminator {
-    width: 80%;
+    width: 50%;
     min-width: 300px;
 
-    & .buttonator {
-      flex-direction: row;
-      & button {
-        margin: 0;
-        width: 40%;
+    & .titlenator {
+      margin-bottom: 0;
+    }
+
+    & .group {
+      &.group-2 {
+        & .group-row {
+          flex-direction: row;
+          & .address {
+            width: 70%;
+          }
+
+          & .addressNumber {
+            width: 27.5%;
+          }
+        }
       }
     }
-  }
-}
 
-.custom-input-semanticui {
-  & input {
-    border-radius: 2rem !important;
-    text-align: center !important;
-
-    &:hover {
-      border-color: transparent;
-      box-shadow: 0 0 2px 0.5px #2185d0;
+    & .buttonator {
+      margin-top: 1rem;
+      & button {
+        margin-bottom: 1rem;
+      }
     }
 
-    &:focus {
-      border-color: transparent !important;
-      box-shadow: 0 0 0 1.5px #2185d0 !important;
-    }
-  }
-}
+    @media (min-width: 900px) {
+      & .buttonator {
+        flex-direction: row;
 
-.forms {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-
-  & .vue-form-terminator {
-    flex: 0 1 40%;
-    margin-bottom: 10%;
-  }
-}
-
-@media (min-width: 930px) {
-  .forms {
-    & .vue-form-terminator {
-      margin-bottom: 0;
+        & button {
+          width: 48%;
+        }
+      }
     }
   }
 }

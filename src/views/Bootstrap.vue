@@ -1,126 +1,121 @@
 <template>
   <div id="bootstrap">
-    <div
-      style="width: 100%; display: flex; justify-content: space-evenly; align-items: center;"
-    >
-      <a
-        class="git-link"
-        target="_blank"
-        href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
-        >Git page code sample</a
-      >
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
+    >Git page code sample</a>
 
-      <div>
-        <label for="errorMessagePosition" style="margin-right: 0.5rem"
-          >Error message position</label
-        >
-        <select
-          name="errorMessagePosition"
-          id="errorMessagePosition"
-          v-model="formSetup.errorMessagePosition"
-          style="border: none; color: inherit;"
-        >
-          <option value="top" selected>Top</option>
-          <option value="bottom">Bottom</option>
-        </select>
-      </div>
-    </div>
-
-    <vue-form-terminator
-      v-bind="formSetup"
-      :model="model"
-      @submited="handleSubmit"
-    ></vue-form-terminator>
+    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
   </div>
 </template>
 
 <script>
 export default {
   name: "Bootstrap",
-
   data() {
     return {
       model: {
         firstName: "John",
         lastName: "Doe",
+        address: "Test street address",
+        addressNumber: "123",
         username: "JohnDoe",
         email: "john.doe@gmail.com",
         password: "12345",
-        repeatPassword: "12345",
-        address: "Some test street",
-        addressNumber: "123",
+        repeatPassword: "12345"
       },
       formSetup: {
+        positioning: {
+          title: "",
+          group: {
+            title: ""
+          },
+          input: {
+            label: "",
+            text: "",
+            errorMessage: ""
+          }
+        },
         title: "Bootstrap sample",
-        errorMessagePosition: "top",
         body: [
-          [
-            {
-              id: "firstName",
-              name: "FirstName",
-              type: "text",
-              label: "",
-              placeholder: "First name",
-              validations: {
-                required: {
-                  message: "First name is required",
+          {
+            isGroup: true,
+            title: "Name and Last name",
+            otherClasses: "group-1",
+            elements: [
+              {
+                id: "firstName",
+                name: "FirstName",
+                type: "text",
+                label: "",
+                placeholder: "First name",
+                validations: {
+                  required: {
+                    message: "First name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "First name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "First name must have less then 20 characters",
-                },
+                otherClasses: "form-control"
               },
-              otherClasses: "form-control custom-input-bootstrap",
-            },
-            {
-              id: "lastName",
-              name: "LastName",
-              type: "text",
-              label: "",
-              placeholder: "Last name",
-              validations: {
-                required: {
-                  message: "Last name is required",
+              {
+                id: "lastName",
+                name: "LastName",
+                type: "text",
+                label: "",
+                placeholder: "Last name",
+                validations: {
+                  required: {
+                    message: "Last name is required"
+                  },
+                  max: {
+                    value: 30,
+                    message: "Last name must have less then 20 characters"
+                  }
                 },
-                max: {
-                  value: 30,
-                  message: "Last name must have less then 20 characters",
+                otherClasses: "form-control"
+              }
+            ]
+          },
+          {
+            isGroup: true,
+            title: "",
+            otherClasses: "group-2",
+            elements: [
+              {
+                id: "address",
+                name: "Address",
+                type: "text",
+                label: "",
+                placeholder: "Address",
+                validations: {
+                  required: {
+                    message: "Address is required"
+                  }
                 },
+                otherClasses: "form-control"
               },
-              otherClasses: "form-control custom-input-bootstrap",
-            },
-          ],
-          [
-            {
-              id: "address",
-              name: "Address",
-              type: "text",
-              label: "",
-              placeholder: "Address",
-              validations: {
-                required: {
-                  message: "Address is required",
+              {
+                id: "addressNumber",
+                name: "HouseNumber",
+                type: "number",
+                label: "",
+                placeholder: "No.",
+                validations: {
+                  required: {
+                    message: "No. is required"
+                  },
+                  numberOnly: {
+                    message: "Only numbers allowed"
+                  }
                 },
-              },
-              otherClasses: "form-control custom-input-bootstrap",
-            },
-            {
-              id: "addressNumber",
-              name: "HouseNumber",
-              type: "number",
-              label: "",
-              placeholder: "No.",
-              validations: {
-                required: {
-                  message: "No. is required",
-                },
-                numberOnly: {
-                  message: "Only numbers allowed",
-                },
-              },
-              otherClasses: "form-control custom-input-bootstrap",
-            },
-          ],
+                otherClasses: "form-control"
+              }
+            ]
+          },
           {
             id: "username",
             name: "Username",
@@ -129,17 +124,17 @@ export default {
             placeholder: "Username",
             validations: {
               required: {
-                message: "Username is required",
+                message: "Username is required"
               },
               max: {
                 value: 20,
-                message: "Username must have less then 20 characters",
+                message: "Username must have less then 20 characters"
               },
               noWhiteSpace: {
-                message: "No space character allowed",
-              },
+                message: "No space character allowed"
+              }
             },
-            otherClasses: "form-control custom-input-bootstrap",
+            otherClasses: "form-control"
           },
           {
             id: "email",
@@ -149,13 +144,13 @@ export default {
             placeholder: "Email",
             validations: {
               required: {
-                message: "Email is required",
+                message: "Email is required"
               },
               email: {
-                message: "Email must be a valid email",
-              },
+                message: "Email must be a valid email"
+              }
             },
-            otherClasses: "form-control custom-input-bootstrap",
+            otherClasses: "form-control"
           },
           {
             id: "password",
@@ -165,18 +160,18 @@ export default {
             placeholder: "Password",
             validations: {
               required: {
-                message: "Password is required",
+                message: "Password is required"
               },
               min: {
                 value: 5,
-                message: "Pasword must have more then 5 characters",
+                message: "Pasword must have more then 5 characters"
               },
               max: {
                 value: 20,
-                message: "Pasword must have less then 20 characters",
-              },
+                message: "Pasword must have less then 20 characters"
+              }
             },
-            otherClasses: "form-control custom-input-bootstrap",
+            otherClasses: "form-control"
           },
           {
             id: "repeatPassword",
@@ -186,23 +181,23 @@ export default {
             placeholder: "Repeat Password",
             validations: {
               required: {
-                message: "Repeat Pasword is required",
+                message: "Repeat Pasword is required"
               },
               min: {
                 value: 5,
-                message: "Must have more then 5 characters",
+                message: "Must have more then 5 characters"
               },
               max: {
                 value: 20,
-                message: "Repeat Pasword must have less then 20 characters",
+                message: "Repeat Pasword must have less then 20 characters"
               },
               compareElements: {
                 value: "password",
-                message: "Repeat Password must be equal as password",
-              },
+                message: "Repeat Password must be equal as password"
+              }
             },
-            otherClasses: "form-control custom-input-bootstrap",
-          },
+            otherClasses: "form-control"
+          }
         ],
         actions: [
           {
@@ -210,113 +205,75 @@ export default {
             name: "Submit",
             type: "submit",
             icon: "fas fa-check",
-            otherClasses: "btn btn-outline-primary custom-button",
+            otherClasses: "btn btn-outline-primary"
           },
           {
             id: "reset",
             name: "Reset",
             type: "reset",
             icon: "fas fa-times",
-            otherClasses: "btn btn-outline-warning custom-button",
-          },
-        ],
-      },
+            otherClasses: "btn btn-outline-warning"
+          }
+        ]
+      }
     };
   },
   methods: {
     handleSubmit(data) {
       console.log(data);
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
 #bootstrap {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  place-items: center;
-  min-width: 350px;
-
-  & .inputnator {
-    margin-bottom: 0.6rem;
-
-    & input {
-      margin: 0.2rem 0;
-    }
-  }
-
-  & .errornator {
-    justify-content: flex-start;
-    & small.invalid {
-      font-size: 1rem;
-    }
-  }
-
   & .vue-form-terminator {
     width: 50%;
     min-width: 300px;
 
-    & .group-2 {
-      flex-direction: row;
-      & .address,
-      & .addressNumber {
-        width: 47.5%;
+    & .titlenator {
+      margin-bottom: 0;
+    }
+
+    & .group {
+      &.outlined {
+        margin-bottom: 0.5rem;
+      }
+
+      &.group-2 {
+        & .group-row {
+          flex-direction: row;
+
+          & .address {
+            width: 70%;
+          }
+          & .addressNumber {
+            width: 27.5%;
+          }
+        }
       }
     }
 
+    & .inputnator {
+      padding-bottom: 0.3rem;
+    }
+
     & .buttonator {
+      margin-top: 1rem;
       & button {
         margin-bottom: 1rem;
       }
     }
-  }
-}
 
-@media (min-width: 930px) {
-  #bootstrap {
-    & .vue-form-terminator {
-      & .group-1 {
-        & .firstName {
-          width: 47.5%;
-        }
-
-        & .lastName {
-          width: 47.5%;
-        }
-      }
-
-      & .group-2 {
-        & .address {
-          width: 75%;
-        }
-        & .addressNumber {
-          width: 20%;
-        }
-      }
-
+    @media (min-width: 900px) {
       & .buttonator {
         flex-direction: row;
+
         & button {
           width: 48%;
         }
       }
     }
-  }
-}
-
-.custom-input-bootstrap {
-  border-radius: 2rem;
-  height: 2.5rem !important;
-  font-size: 1.3rem;
-
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 0 2px 0.5px #2185d0;
-  }
-
-  &:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 1.5px #2185d0;
   }
 }
 </style>
