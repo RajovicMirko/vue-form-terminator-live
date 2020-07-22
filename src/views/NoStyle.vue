@@ -1,5 +1,12 @@
 <template>
   <div id="nostyle">
+    <a
+      class="git-link"
+      target="_blank"
+      href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/NoStyle.vue"
+      >Git page code sample</a
+    >
+
     <vue-form-terminator
       v-bind="formSetup"
       :model="model"

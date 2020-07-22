@@ -18,6 +18,7 @@
 <script>
 export default {
   name: "Bootstrap",
+
   data() {
     return {
       model: {
@@ -64,7 +65,7 @@ export default {
                     message: "First name must have less then 20 characters",
                   },
                 },
-                otherClasses: "form-control",
+                otherClasses: "form-control form-control-sm",
               },
               {
                 id: "lastName",
@@ -81,7 +82,7 @@ export default {
                     message: "Last name must have less then 20 characters",
                   },
                 },
-                otherClasses: "form-control",
+                otherClasses: "form-control form-control-sm",
               },
             ],
           },
@@ -101,7 +102,7 @@ export default {
                     message: "Address is required",
                   },
                 },
-                otherClasses: "form-control",
+                otherClasses: "form-control form-control-sm",
               },
               {
                 id: "addressNumber",
@@ -117,7 +118,7 @@ export default {
                     message: "Only numbers allowed",
                   },
                 },
-                otherClasses: "form-control",
+                otherClasses: "form-control form-control-sm",
               },
             ],
           },
@@ -139,7 +140,7 @@ export default {
                 message: "No space character allowed",
               },
             },
-            otherClasses: "form-control",
+            otherClasses: "form-control form-control-sm",
           },
           {
             id: "email",
@@ -155,7 +156,7 @@ export default {
                 message: "Email must be a valid email",
               },
             },
-            otherClasses: "form-control",
+            otherClasses: "form-control form-control-sm",
           },
           {
             id: "password",
@@ -176,7 +177,7 @@ export default {
                 message: "Pasword must have less then 20 characters",
               },
             },
-            otherClasses: "form-control",
+            otherClasses: "form-control form-control-sm",
           },
           {
             id: "repeatPassword",
@@ -201,7 +202,7 @@ export default {
                 message: "Repeat Password must be equal as password",
               },
             },
-            otherClasses: "form-control",
+            otherClasses: "form-control form-control-sm",
           },
         ],
         actions: [
@@ -240,7 +241,7 @@ $primary: #2185d0;
   color: $primary;
 
   & .vue-form-terminator {
-    width: 50%;
+    width: 30%;
     min-width: 300px;
 
     & .titlenator {
@@ -268,6 +269,11 @@ $primary: #2185d0;
 
     & .inputnator {
       padding-bottom: 0.3rem;
+
+      & .errornator {
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+      }
     }
 
     & .buttonator {

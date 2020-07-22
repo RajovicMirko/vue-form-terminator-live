@@ -90,7 +90,7 @@ body {
   }
 }
 
-@media (max-width: 930px) {
+@media (max-width: 900px) {
   .nav {
     flex-direction: column;
 
