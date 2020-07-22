@@ -4,9 +4,14 @@
       class="git-link"
       target="_blank"
       href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
-    >Git page code sample</a>
+      >Git page code sample</a
+    >
 
-    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
+    <vue-form-terminator
+      v-bind="formSetup"
+      :model="model"
+      @submited="handleSubmit"
+    ></vue-form-terminator>
   </div>
 </template>
 
@@ -23,25 +28,25 @@ export default {
         username: "JohnDoe",
         email: "john.doe@gmail.com",
         password: "12345",
-        repeatPassword: "12345"
+        repeatPassword: "12345",
       },
       formSetup: {
         positioning: {
           title: "",
           group: {
-            title: ""
+            title: "",
           },
           input: {
             label: "",
             text: "",
-            errorMessage: ""
-          }
+            errorMessage: "",
+          },
         },
         title: "Bootstrap sample",
         body: [
           {
             isGroup: true,
-            title: "Name and Last name",
+            title: "Personal data",
             otherClasses: "group-1",
             elements: [
               {
@@ -52,14 +57,14 @@ export default {
                 placeholder: "First name",
                 validations: {
                   required: {
-                    message: "First name is required"
+                    message: "First name is required",
                   },
                   max: {
                     value: 30,
-                    message: "First name must have less then 20 characters"
-                  }
+                    message: "First name must have less then 20 characters",
+                  },
                 },
-                otherClasses: "form-control"
+                otherClasses: "form-control",
               },
               {
                 id: "lastName",
@@ -69,16 +74,16 @@ export default {
                 placeholder: "Last name",
                 validations: {
                   required: {
-                    message: "Last name is required"
+                    message: "Last name is required",
                   },
                   max: {
                     value: 30,
-                    message: "Last name must have less then 20 characters"
-                  }
+                    message: "Last name must have less then 20 characters",
+                  },
                 },
-                otherClasses: "form-control"
-              }
-            ]
+                otherClasses: "form-control",
+              },
+            ],
           },
           {
             isGroup: true,
@@ -93,10 +98,10 @@ export default {
                 placeholder: "Address",
                 validations: {
                   required: {
-                    message: "Address is required"
-                  }
+                    message: "Address is required",
+                  },
                 },
-                otherClasses: "form-control"
+                otherClasses: "form-control",
               },
               {
                 id: "addressNumber",
@@ -106,15 +111,15 @@ export default {
                 placeholder: "No.",
                 validations: {
                   required: {
-                    message: "No. is required"
+                    message: "No. is required",
                   },
                   numberOnly: {
-                    message: "Only numbers allowed"
-                  }
+                    message: "Only numbers allowed",
+                  },
                 },
-                otherClasses: "form-control"
-              }
-            ]
+                otherClasses: "form-control",
+              },
+            ],
           },
           {
             id: "username",
@@ -124,17 +129,17 @@ export default {
             placeholder: "Username",
             validations: {
               required: {
-                message: "Username is required"
+                message: "Username is required",
               },
               max: {
                 value: 20,
-                message: "Username must have less then 20 characters"
+                message: "Username must have less then 20 characters",
               },
               noWhiteSpace: {
-                message: "No space character allowed"
-              }
+                message: "No space character allowed",
+              },
             },
-            otherClasses: "form-control"
+            otherClasses: "form-control",
           },
           {
             id: "email",
@@ -144,13 +149,13 @@ export default {
             placeholder: "Email",
             validations: {
               required: {
-                message: "Email is required"
+                message: "Email is required",
               },
               email: {
-                message: "Email must be a valid email"
-              }
+                message: "Email must be a valid email",
+              },
             },
-            otherClasses: "form-control"
+            otherClasses: "form-control",
           },
           {
             id: "password",
@@ -160,18 +165,18 @@ export default {
             placeholder: "Password",
             validations: {
               required: {
-                message: "Password is required"
+                message: "Password is required",
               },
               min: {
                 value: 5,
-                message: "Pasword must have more then 5 characters"
+                message: "Pasword must have more then 5 characters",
               },
               max: {
                 value: 20,
-                message: "Pasword must have less then 20 characters"
-              }
+                message: "Pasword must have less then 20 characters",
+              },
             },
-            otherClasses: "form-control"
+            otherClasses: "form-control",
           },
           {
             id: "repeatPassword",
@@ -181,23 +186,23 @@ export default {
             placeholder: "Repeat Password",
             validations: {
               required: {
-                message: "Repeat Pasword is required"
+                message: "Repeat Pasword is required",
               },
               min: {
                 value: 5,
-                message: "Must have more then 5 characters"
+                message: "Must have more then 5 characters",
               },
               max: {
                 value: 20,
-                message: "Repeat Pasword must have less then 20 characters"
+                message: "Repeat Pasword must have less then 20 characters",
               },
               compareElements: {
                 value: "password",
-                message: "Repeat Password must be equal as password"
-              }
+                message: "Repeat Password must be equal as password",
+              },
             },
-            otherClasses: "form-control"
-          }
+            otherClasses: "form-control",
+          },
         ],
         actions: [
           {
@@ -205,28 +210,35 @@ export default {
             name: "Submit",
             type: "submit",
             icon: "fas fa-check",
-            otherClasses: "btn btn-outline-primary"
+            otherClasses: "btn btn-outline-primary",
           },
           {
             id: "reset",
             name: "Reset",
             type: "reset",
             icon: "fas fa-times",
-            otherClasses: "btn btn-outline-warning"
-          }
-        ]
-      }
+            otherClasses: "btn btn-outline-warning",
+          },
+        ],
+      },
     };
   },
   methods: {
     handleSubmit(data) {
       console.log(data);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
+$primary: #2185d0;
+
 #bootstrap {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  place-items: center;
+  color: $primary;
+
   & .vue-form-terminator {
     width: 50%;
     min-width: 300px;

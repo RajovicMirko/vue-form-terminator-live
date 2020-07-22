@@ -14,7 +14,7 @@
         >
       </div>
     </div>
-    <router-view class="page" />
+    <router-view />
   </div>
 </template>
 
@@ -38,6 +38,7 @@ export default {
 
 <style lang="scss">
 $primary: #2185d0;
+
 * {
   margin: 0;
   padding: 0;
@@ -53,11 +54,15 @@ $primary: #2185d0;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 #app {
   display: grid;
   grid-template-rows: auto 1fr;
+  width: 100%;
+  height: 100%;
 
   & .nav {
     position: relative;
@@ -82,14 +87,6 @@ body {
         color: white;
       }
     }
-  }
-
-  .page {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    place-items: center;
-    min-width: 350px;
-    color: $primary;
   }
 }
 
