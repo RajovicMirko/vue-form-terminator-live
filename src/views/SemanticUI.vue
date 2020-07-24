@@ -4,14 +4,9 @@
       class="git-link"
       target="_blank"
       href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/SemanticUI.vue"
-      >Git page code sample</a
-    >
+    >Git page code sample</a>
 
-    <vue-form-terminator
-      v-bind="formSetup"
-      :model="model"
-      @submited="handleSubmit"
-    ></vue-form-terminator>
+    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
   </div>
 </template>
 
@@ -42,12 +37,11 @@ export default {
           },
         },
         title: "SemanticUI sample",
-        errorMessagePosition: "top",
         body: [
           {
             isGroup: true,
             title: "Personal data",
-            otherClasses: "group-1",
+            otherClasses: "outline group-1",
             elements: [
               {
                 id: "firstName",
@@ -83,13 +77,6 @@ export default {
                 },
                 otherClasses: "ui input custom-input-semanticui",
               },
-            ],
-          },
-          {
-            isGroup: true,
-            title: "",
-            otherClasses: "group-2",
-            elements: [
               {
                 id: "address",
                 name: "Address",
@@ -242,20 +229,26 @@ $primary: #2185d0;
     width: 50%;
     min-width: 300px;
 
-    & .titlenator {
-      margin-bottom: 0;
-    }
-
     & .group {
-      &.group-2 {
-        & .group-row {
-          flex-direction: row;
-          & .address {
-            width: 70%;
-          }
+      & .group-data {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 0 1rem;
 
-          & .addressNumber {
-            width: 27.5%;
+        & .inputnator {
+          width: 100%;
+
+          &.firstName {
+            grid-column: 1/6;
+          }
+          &.lastName {
+            grid-column: 1/6;
+          }
+          &.address {
+            grid-column: 1/4;
+          }
+          &.addressNumber {
+            grid-column: 4/6;
           }
         }
       }
@@ -268,7 +261,20 @@ $primary: #2185d0;
       }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 768px) {
+      & .group {
+        & .group-data {
+          & .inputnator {
+            &.firstName {
+              grid-column: 1/3;
+            }
+            &.lastName {
+              grid-column: 3/6;
+            }
+          }
+        }
+      }
+
       & .buttonator {
         flex-direction: row;
 

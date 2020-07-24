@@ -1,17 +1,12 @@
 <template>
-  <div id="bootstrap">
+  <div id="bootstrap-sample">
     <a
       class="git-link"
       target="_blank"
       href="https://github.com/RajovicMirko/vue-form-terminator-live/blob/master/src/views/Bootstrap.vue"
-      >Git page code sample</a
-    >
+    >Git page code sample</a>
 
-    <vue-form-terminator
-      v-bind="formSetup"
-      :model="model"
-      @submited="handleSubmit"
-    ></vue-form-terminator>
+    <vue-form-terminator v-bind="formSetup" :model="model" @submited="handleSubmit"></vue-form-terminator>
   </div>
 </template>
 
@@ -31,11 +26,12 @@ export default {
         password: "12345",
         repeatPassword: "12345",
       },
+
       formSetup: {
         positioning: {
           title: "",
           group: {
-            title: "",
+            title: "none",
           },
           input: {
             label: "",
@@ -84,13 +80,6 @@ export default {
                 },
                 otherClasses: "form-control form-control-sm",
               },
-            ],
-          },
-          {
-            isGroup: true,
-            title: "",
-            otherClasses: "group-2",
-            elements: [
               {
                 id: "address",
                 name: "Address",
@@ -224,6 +213,7 @@ export default {
       },
     };
   },
+
   methods: {
     handleSubmit(data) {
       console.log(data);
@@ -234,34 +224,48 @@ export default {
 <style lang="scss">
 $primary: #2185d0;
 
-#bootstrap {
+#bootstrap-sample {
   display: grid;
   grid-template-rows: auto 1fr;
   place-items: center;
   color: $primary;
 
   & .vue-form-terminator {
-    width: 30%;
+    width: 40%;
     min-width: 300px;
 
     & .titlenator {
-      margin-bottom: 0;
+      margin: 0;
     }
 
     & .group {
-      &.outlined {
+      &.outline {
         margin-bottom: 0.5rem;
       }
 
-      &.group-2 {
-        & .group-row {
-          flex-direction: row;
+      &.group-1 {
+        & .group-data {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-gap: 0 1rem;
 
-          & .address {
-            width: 70%;
-          }
-          & .addressNumber {
-            width: 27.5%;
+          & .inputnator {
+            width: 100%;
+
+            &.firstName {
+              grid-column: 1/6;
+            }
+            &.lastName {
+              grid-column: 1/6;
+            }
+
+            &.address {
+              grid-column: 1/4;
+            }
+
+            &.addressNumber {
+              grid-column: 4/6;
+            }
           }
         }
       }
@@ -283,7 +287,23 @@ $primary: #2185d0;
       }
     }
 
-    @media (min-width: 900px) {
+    // BIG SCREEN
+    @media (min-width: 768px) {
+      & .group {
+        &.group-1 {
+          & .group-data {
+            & .inputnator {
+              &.firstName {
+                grid-column: 1/3;
+              }
+              &.lastName {
+                grid-column: 3/6;
+              }
+            }
+          }
+        }
+      }
+
       & .buttonator {
         flex-direction: row;
 
