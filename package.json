@@ -15,7 +15,7 @@
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "vue": "^2.6.11",
-    "vue-form-terminator": "^0.2.2",
+    "vue-form-terminator": "^0.2.3",
     "vue-fragment": "^1.5.1",
     "vue-router": "^3.2.0"
   },
